@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuestador CIFIP</title>
+     <link rel="icon" href="https://raw.githubusercontent.com/doinGlobalContents/AVATAR-ENCUESTADOR-CIFIP/refs/heads/main/Favicon%20AI.ico" type="image/x-icon">
+   <style>
+body {
+    font-family: POPPINS, sans-serif;
+    color: #262626;
+    margin: 0;
+    padding: 0;
+    background: url('AI-Academy-MGPPIA.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+header {
+     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    height: 100px; 
+    margin-bottom: 50px;
+}
+
+.logonegro {
+    max-height: 70px;
+    visibility: visible;
+    align: center;
+    
+}
+
+.logoblanco {
+    max-height: 70px;
+    display: none;
+    margin-bottom: 10px;
+}
+
+/*header img {
+    max-height: 70px;
+}*/
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    }
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    margin: 0 0 10px 0;
+    color: #fff;
+}
+
+h2 {
+    font-size: 1.5em;
+    text-align: center;
+    color: #ccc;
+}
+
+.avatar-container {
+    width: 600px;
+    height: 600px;
+    background-color: #262626;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.avatar-container.active {
+    display: flex;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.8em;
+    color: #f7f0f0;
+    margin-top: 10px;
+    padding: 10px;
+}
+/* Estilos del Pop-Up */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; 
+   }
+
+#Gif {
+        width: 70%; /* Ocupa todo el ancho del contenedor */
+        height: auto; /* Mantiene la proporción del GIF */
+        border-radius: 8px; /* Redondea las esquinas para que coincidan con el popup */
+        animation: zoomIn 0.5s ease-in-out;
+}
+@keyframes zoomIn {
+    from {
+        transform: scale(0.90);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+            }
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.popup-content h2 {
+    margin-top: 0;
+    color: #99cc04
+}
+
+.popup-content p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.popup .continue-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #99cc04;
+    color: white;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup .continue-button:hover {
+    background-color: #262626;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+
+/* Estilos para pantallas menores a 600px */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+        background-size: 100% 100%; /* Asegura que la imagen no se distorsione */
+    }
+
+    header {
+        flex-direction: column;
+        height: auto; /* Ajusta automáticamente la altura */
+        background: #000107;
+    }
+
+   .logonegro {
+    max-height: 50px;
+    display: none;
+    }
+
+   .logoblanco {
+    max-height: 50px;
+    display: inline-block;;
+    align: center;
+    }
+
+    /*header img {
+        max-height: 50px; /* Redimensiona el logo
+    }*/
+
+      h1 {
+        font-size: 1.5em; /* Reduce el tamaño del texto */
+    }
+
+    h2 {
+        font-size: 1em;
+    }
+
+    .avatar-container {
+        width: 100%; /* Asegura que ocupe todo el ancho disponible */
+        height: 500px; /* Ajusta la altura automáticamente */
+        border-radius: 10px;
+    }
+
+     footer {
+        font-size: 0.7em; /* Reduce el tamaño de fuente del footer */
+        padding: 5px;
+    }
+    .popup-content {
+        font-size: 0.8em;
+            }
+}
+</style>
+
+</head>
+
+<body>
+
+    <header>
+        <img class="logonegro" src="AI-Academy-Logo.png" alt="AI Academy Logo">
+        <img class="logoblanco" src="AI-Academy-logo-white.png" alt="AI Academy Logo">
+    </header>
+    <main>
+                       <div class="avatar-container active" id="avatar1">
+            <h2 style="color:rgb(255, 255, 255);">Encuestador CIFIP</h2>
+            <script>
+                !function(window){
+                    const host="https://labs.heygen.com",
+                   url=host+"/guest/streaming-embed?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiIyNDdjNTFjMGM5MDc0NDI3YjNmMWZlNTBm%0D%0AZTJlYTg5YSIsInByZXZpZXdJbWciOiJodHRwczovL2ZpbGVzMi5oZXlnZW4uYWkvYXZhdGFyL3Yz%0D%0ALzI0N2M1MWMwYzkwNzQ0MjdiM2YxZmU1MGZlMmVhODlhL2Z1bGwvMi4yL3ByZXZpZXdfdGFyZ2V0%0D%0ALndlYnAiLCJuZWVkUmVtb3ZlQmFja2dyb3VuZCI6ZmFsc2UsImtub3dsZWRnZUJhc2VJZCI6ImNm%0D%0AYzg3OGMyMjhjZjRlYmFiYjg0NDViZDVkNjdmODFiIiwidXNlcm5hbWUiOiI5Mzc0NGZkZTc1NGY0%0D%0AY2ZjOTQzNjA2NTU4Y2M3NjZlZSJ9&inIFrame=1",                    
+                    clientWidth=document.body.clientWidth,
+                    wrapDiv=document.createElement("div");
+                    wrapDiv.id="heygen-streaming-embed";
+                    const container=document.createElement("div");
+                    container.id="heygen-streaming-container";
+                    const stylesheet=document.createElement("style");
+                    stylesheet.innerHTML=`
+                        #heygen-streaming-embed {
+                            z-index: 9999;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 0;
+                            border: none;
+                            box-shadow: none;
+                            transition: none;
+                            overflow: hidden;
+                        }
+                        #heygen-streaming-container {
+                            width: 100%;
+                            height: 100%;
+                        }
+                        #heygen-streaming-container iframe {
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                        }
+                    `;
+                    const iframe=document.createElement("iframe");
+                    iframe.allowFullscreen=!1;
+                    iframe.title="Streaming Embed";
+                    iframe.role="dialog";
+                    iframe.allow="microphone";
+                    iframe.src=url;
+                    let visible=!1,initial=!1;
+                    window.addEventListener("message",(e=>{
+                        e.origin===host&&e.data&&e.data.type&&"streaming-embed"===e.data.type&&(
+                            "init"===e.data.action?(initial=!0,wrapDiv.classList.toggle("show",initial)):
+                            "show"===e.data.action?(visible=!0,wrapDiv.classList.toggle("expand",visible)):
+                            "hide"===e.data.action&&(visible=!1,wrapDiv.classList.toggle("expand",visible))
+                        )
+                    }));
+                    container.appendChild(iframe);
+                    wrapDiv.appendChild(stylesheet);
+                    wrapDiv.appendChild(container);
+                    document.getElementById("avatar1").appendChild(wrapDiv);
+                }(globalThis);
+                </script>
+        </div>
+              
+    </main>
+        <footer>
+        Este asistente virtual es un prototipo desarrollado en el laboratorio de investigación de AI Academy by doinGlobal.
+    </footer>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span id="closePopup" class="close">&times;</span>
+            <h2>¡Importante!</h2>
+            <p><b>Antes de comenzar, tenga en cuenta las siguientes indicaciones:</b></p>
+            <p><b>1. Configure su conversación:</b> Haga clic en <b>"Chat now"</b> y seleccione el idioma <b>"Spanish"</b> para comenzar.</p>
+            <img id="Gif" src="https://i.gifer.com/3OsMY.gif" alt="Ejemplo de Configuración">
+            <p><b>2. Active su micrófono desde el navegador:</b> Para aceptar los permisos, haga clic en <b>"Permitir mientras visitas el sitio"</b>. Este ajuste se realiza por única vez. </p>
+             
+            <button id="continueButton" class="continue-button">Continuar</button>
+        </div>
+    </div>
+    <script>
+        // Mostrar el pop-up al cargar la página
+        window.addEventListener('load', () => {
+            document.getElementById('popup').style.display = 'flex';
+        });
+
+        // Cerrar el pop-up al hacer clic en el botón de cierre o en "Continuar"
+        document.getElementById('closePopup').addEventListener('click', () => {
+            document.getElementById('popup').style.display = 'none';
+        });
+
+        document.getElementById('continueButton').addEventListener('click', () => {
+            document.getElementById('popup').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
